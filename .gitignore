@@ -1,8 +1,9 @@
 
 .idea/vcs.xml
 .idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/
-.out/
+*.idea
+*.out
 *.xml
+.idea/workspace.xml
+.idea/workspace.xml
+.idea/workspace.xml

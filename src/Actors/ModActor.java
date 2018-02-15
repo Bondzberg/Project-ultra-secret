@@ -3,14 +3,13 @@ package Actors;
 import mayflower.Actor;
 import mayflower.Color;
 import mayflower.Label;
-import mayflower.MayflowerImage;
 
 public abstract class ModActor extends Actor
 {
     private Label image;
     private int speed;
     private int time;
-    private int Health;
+    private int health;
     private String letter;
     private String name;
 
@@ -23,6 +22,15 @@ public abstract class ModActor extends Actor
         this.image = new Label(image.substring(0,1),10, Color.CYAN);
         letter = image.substring(0,1);
     }
+
+    public ModActor(String letter,int speed,int time,int health)
+    {
+        this.letter = letter;
+        this.speed = speed;
+        this.time = time;
+        this.health = health;
+    }
+
     //potential computer troubles
     @Override
     public void act()
@@ -35,7 +43,7 @@ public abstract class ModActor extends Actor
     }
 
     public void setHealth(int health) {
-        Health = health;
+        this.health = health;
     }
 
     public abstract void Tick();
@@ -44,14 +52,14 @@ public abstract class ModActor extends Actor
     {
         time -= x;
     }
-    
+
     public void modHealth(int x)
     {
-        this.Health -= x;
+        this.health -= x;
     }
 
     public int getHealth() {
-        return Health;
+        return health;
     }
 
     public int getTime() {
@@ -64,7 +72,7 @@ public abstract class ModActor extends Actor
 
     @Override
     public String toString() {
-        String ret =name+": "+letter+","+Integer.toString(speed)+","+Integer.toString(time)+","+Integer.toString(Health);
+        String ret =name+": "+letter+","+Integer.toString(speed)+","+Integer.toString(time)+","+Integer.toString(health);
 
         return super.toString();
     }
