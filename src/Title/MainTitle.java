@@ -40,6 +40,12 @@ public class MainTitle extends ModWorld implements EventListener
         //do nothing
     }
 
+    @Override
+    public void Process(String s)
+    {
+
+    }
+
 
     @Override
     public void onEvent(String s)

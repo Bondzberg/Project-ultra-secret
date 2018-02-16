@@ -10,4 +10,5 @@ public abstract class ModWorld extends World
 
     }
     public abstract void Tick();
+    public abstract void Process(String s);
 }
