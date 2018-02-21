@@ -19,7 +19,7 @@ public abstract class ModActor extends Actor
     }
     public ModActor(String image)
     {
-        this.image = new Label(image.substring(0,1),10, Color.CYAN);
+        this.image = new Label(image.substring(0,1),10, Color.RED);
         letter = image.substring(0,1);
     }
 

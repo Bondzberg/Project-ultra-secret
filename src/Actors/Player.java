@@ -9,6 +9,7 @@ public class Player extends ModActor
         setSpeed((int)(Math.random()*10)+10);
         setHealth((int)(Math.random()*10)+10);
         setName("Player");
+
     }
 
     @Override

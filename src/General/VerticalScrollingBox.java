@@ -5,11 +5,12 @@ import mayflower.Actor;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import List.InfiniteLinkedList;
 
 public class VerticalScrollingBox extends Actor
 {
     private Queue inputs;
-    private LinkedList saves;
+    private InfiniteLinkedList<Saves> saves;
     private Boolean done;
     private Saves[] displayed;
     private int index;
@@ -17,6 +18,7 @@ public class VerticalScrollingBox extends Actor
     public VerticalScrollingBox(List<Saves> saves)
     {
         inputs = new LinkedList();
+        this.saves = new InfiniteLinkedList<Saves>();
         for(Saves save: saves)
         {
             this.saves.add(save);

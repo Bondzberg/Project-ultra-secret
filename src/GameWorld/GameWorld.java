@@ -1,6 +1,7 @@
 package GameWorld;
 
 import Actors.ModActor;
+import Actors.Player;
 import General.ModWorld;
 import mayflower.Actor;
 import mayflower.World;
@@ -11,6 +12,12 @@ public class GameWorld extends ModWorld
 {
     private List<ModActor> Actors;
     private List<Class> classes;
+
+    public GameWorld(Player player)
+    {
+        addObject(player,10,10);
+    }
+
     @Override
     public void Tick()
     {
@@ -19,6 +26,13 @@ public class GameWorld extends ModWorld
             Actor.Tick();
         }
     }
+
+    @Override
+    public void Process(String s)
+    {
+
+    }
+
     @Override
     public void act()
     {
@@ -28,7 +42,7 @@ public class GameWorld extends ModWorld
     @Override
     public String toString()
     {
-        String ret="";
+        /*String ret="";
         for(Class classe: classes)
         {
             for(Object actor:this.getObjects(classe))
@@ -37,7 +51,8 @@ public class GameWorld extends ModWorld
             }
 
         }
-        return ret;
+        return ret;*/
+        return "";
     }
 
 }

@@ -3,9 +3,7 @@ package Title;
 import GameClient.GameClient;
 import General.ModWorld;
 import com.sun.deploy.util.SessionState;
-import mayflower.Label;
-import mayflower.Mayflower;
-import mayflower.World;
+import mayflower.*;
 import mayflower.event.EventListener;
 import mayflower.ui.Button;
 
@@ -18,21 +16,27 @@ public class MainTitle extends ModWorld implements EventListener
 
     public MainTitle(GameClient client)
     {
-        play = new Button("img/play","play");
+        play = new Button("img/play.png","play");
         play.addEventListener(this);
         addObject(play,400,300);
         Title = new Label("Title Screen");
         addObject(Title,400,100);
-        options = new Button("img/play","option");
+        options = new Button("img/play.png","option");
         options.addEventListener(this);
         addObject(options,400,500);
+        Label temp =new Label("@",50, Color.BLACK);
+        addObject(temp,50,50);
         Mayflower.setWorld(this);
     }
 
     @Override
     public void act()
     {
-
+        Label temp =new Label("@");
+        addObject(temp,50,50);
+        temp.setText("A");
+        temp.setColor(Color.BLACK);
+        new MayflowerImage("a",10,Color.BLACK);
     }
 
     @Override
