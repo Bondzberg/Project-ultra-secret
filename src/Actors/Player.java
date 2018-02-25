@@ -1,15 +1,16 @@
 package Actors;
 
+import mayflower.World;
+
 public class Player extends ModActor
 {
 
-    public Player()
+    public Player(World world)
     {
-        super("@");
+        super("@",world);
         setSpeed((int)(Math.random()*10)+10);
         setHealth((int)(Math.random()*10)+10);
         setName("Player");
-
     }
 
     @Override

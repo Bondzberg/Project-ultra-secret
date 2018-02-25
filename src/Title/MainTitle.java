@@ -32,11 +32,7 @@ public class MainTitle extends ModWorld implements EventListener
     @Override
     public void act()
     {
-        Label temp =new Label("@");
-        addObject(temp,50,50);
-        temp.setText("A");
-        temp.setColor(Color.BLACK);
-        new MayflowerImage("a",10,Color.BLACK);
+
     }
 
     @Override

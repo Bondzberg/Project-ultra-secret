@@ -42,7 +42,15 @@ public class VerticalScrollingBox extends Actor
         {
             if(inputs.peek().equals("up"))
             {
-
+                displayed[0] = saves.getParentValue(displayed[0]);
+                displayed[1] = saves.getParentValue(displayed[1]);
+                displayed[2] = saves.getParentValue(displayed[2]);
+            }
+            else if(inputs.peek().equals("down"))
+            {
+                displayed[0] = saves.getNextValue(displayed[0]);
+                displayed[1] = saves.getNextValue(displayed[1]);
+                displayed[2] = saves.getNextValue(displayed[2]);
             }
         }
     }

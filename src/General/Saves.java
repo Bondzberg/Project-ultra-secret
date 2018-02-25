@@ -3,7 +3,7 @@ package General;
 import GameWorld.GameWorld;
 import mayflower.World;
 
-import java.io.File;
+import java.io.*;
 
 public class Saves
 {
@@ -13,11 +13,25 @@ public class Saves
     public Saves(GameWorld gameWorld)
     {
         important = gameWorld.toString();
+        int num = 1;
+        try {
+            do {
+                file = new File(String.format("saves/%d.sav", num));
+                num++;
+            } while (!file.createNewFile());
+            Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(String.format("saves%d.sav", num-1)) ));
+            writer.write(important);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     //recreates a save file
-    public Saves(File filel)
+    public Saves(File file)
     {
-        //To-do create a system that recreates a save/world via a txt file
+        //To-do create a system that recreates a save/world via a sav file
     }
     public World world()
     {

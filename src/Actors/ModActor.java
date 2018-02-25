@@ -1,41 +1,60 @@
 package Actors;
 
-import mayflower.Actor;
-import mayflower.Color;
-import mayflower.Label;
+import mayflower.*;
 
-public abstract class ModActor extends Actor
+public abstract class ModActor
 {
-    private Label image;
+
     private int speed;
     private int time;
     private int health;
     private String letter;
     private String name;
+    private Color color;
+    private boolean darker;
+    private Color oldcolor;
+    private World world;
+    private int xIndex;
+    private int yIndex;
 
     public ModActor()
     {
-        image = new Label("");
+        letter = "";
+        color = Color.WHITE;
+
     }
-    public ModActor(String image)
+    public ModActor(String image,World world)
     {
-        this.image = new Label(image.substring(0,1),10, Color.RED);
+
         letter = image.substring(0,1);
+        color = Color.ORANGE;
+        oldcolor = color;
+
+        darker = false;
+        this.world = world;
+
+        //getWorld().showText(letter,getX(),getY());
     }
 
     public ModActor(String letter,int speed,int time,int health)
     {
-        this.letter = letter;
+        this.letter = letter.substring(0,1);
         this.speed = speed;
         this.time = time;
         this.health = health;
     }
 
-    //potential computer troubles
-    @Override
-    public void act()
+    public void animate()
     {
-        this.image.setLocation(this.getX(),this.getY());
+        if(darker) {
+            color = color.brighter().brighter().brighter().brighter().brighter();
+            darker = false;
+        }
+        else {
+            //color = new Color(color.getRed()-20,color.getGreen()-20,color.getBlue());
+            color = oldcolor;
+            darker = true;
+        }
     }
 
     public void setSpeed(int speed) {
@@ -70,9 +89,37 @@ public abstract class ModActor extends Actor
         this.name = name;
     }
 
+    public String getLetter() {
+        return letter;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+    public void setWorld(World world) {
+        this.world = world;
+    }
+    public void setxyIndex(int x,int y)
+    {
+        this.xIndex =x;
+        this.yIndex =y;
+    }
+
+    public int getxIndex() {
+        return xIndex;
+    }
+
+    public int getyIndex() {
+        return yIndex;
+    }
+
     @Override
     public String toString() {
-        String ret =name+": "+letter+","+Integer.toString(speed)+","+Integer.toString(time)+","+Integer.toString(health);
+        String ret =name+": "+letter+","+Integer.toString(speed)+","+Integer.toString(time)+","+Integer.toString(health)+"/"+getxIndex()+","+getyIndex();
 
         return super.toString();
     }

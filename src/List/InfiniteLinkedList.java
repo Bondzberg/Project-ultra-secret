@@ -1,6 +1,6 @@
 package List;
 
-public class InfiniteLinkedList<E> implements GenericList
+public class InfiniteLinkedList<E>
 {
     private Node head;
     public InfiniteLinkedList()
@@ -8,8 +8,8 @@ public class InfiniteLinkedList<E> implements GenericList
         head = new Node(null);
     }
 
-    @Override
-    public boolean add(Object obj)
+
+    public boolean add(E obj)
     {
         Node temp = new Node(obj);
 
@@ -21,6 +21,7 @@ public class InfiniteLinkedList<E> implements GenericList
         }
         getNode(size()-1).setNext(temp);
         head.setParent(getNode(size()-1));
+        getNode(size()-1).setNext(head);
 
         return true;
     }
@@ -30,9 +31,11 @@ public class InfiniteLinkedList<E> implements GenericList
         {
             add(value);
         }
+        head.setParent(getNode(size()-1));
+        getNode(size()-1).setNext(head);
     }
-    @Override
-    public void add(int index, Object obj)
+
+    public void add(int index, E obj)
     {
 
         Node temp = new Node(obj);
@@ -42,73 +45,28 @@ public class InfiniteLinkedList<E> implements GenericList
         temp.setNext(next);
     }
 
-    @Override
-    public boolean contains(Object obj)
-    {
-        Node temp = head.getNext();
-        while(temp!= null)
-        {
-            if(temp.getValue().equals(obj))
-                return true;
-            temp = temp.getNext();
-        }
-        return false;
-    }
 
-    @Override
-    public Object get(int index)
+
+
+    public E get(int index)
     {
         if(size()<=index||index<0)
             return null;
 
-        return getNode(index).getValue();
+        return (E)getNode(index).getValue();
     }
 
-    @Override
-    public boolean isEmpty() {
-        if(head.getNext() == null)
-            return true;
-        return false;
-    }
 
-    @Override
-    public Object remove(int index)
+    public E getParentValue(E obj)
     {
-        if(size()-1<index||index<0)
-            return null;
-        Object ret;
-        if(getNode(index) == null)
-        {
-            ret = getNode(index-1).getValue();
-            getNode(index-2).setNext(null);
-            return ret;
-        }
-        ret = getNode(index).getValue();
-        getNode(index-1).setNext(getNode(index+1));
-        return ret;
+        return (E)getNode(getIndex(obj)).getParent().getValue();
     }
 
-    @Override
-    public boolean remove(Object obj)
+    public E getNextValue(E obj)
     {
-        int index = getIndex(obj);
-        if (remove(index) == null)
-            return false;
-
-        return true;
+        return (E)getNode(getIndex(obj)).getNext().getValue();
     }
 
-    @Override
-    public Object set(int index, Object obj)
-    {
-        if(size()<=index||index<0)
-            return null;
-        Object ret = getNode(index).getValue();
-        getNode(index).setValue(obj);
-        return ret;
-    }
-
-    @Override
     public int size()
     {
         Node temp = head.getNext();
@@ -123,7 +81,7 @@ public class InfiniteLinkedList<E> implements GenericList
 
         return ret;
     }
-    public int getIndex(Object obj)
+    public int getIndex(E obj)
     {
         int ret = 0;
         Node temp = head.next;

@@ -25,22 +25,25 @@ public class GameClient implements EventListener
         world = new MainTitle(this);
         inputManager = new InputManagers(this);
         world.addObject(inputManager,-1,-1);
-       // player = new Player();
-        //world = new GameWorld(player);
-        //Mayflower.setWorld(world);
+        player = new Player(world);
+        Mayflower.setWorld(world);
     }
     @Override
     public void onEvent(String s)
     {
-        if(s.equals("Play"))
-        {
-            world = new SelectSave();
-            inputManager.clearKeys();
-            inputManager.addKeys(Keyboard.KEY_UP,"up");
-            inputManager.addKeys(Keyboard.KEY_DOWN,"down");
-        }
-        else
-        {
+        switch (s) {
+            case "play":
+                world = new SelectSave();
+                inputManager.clearKeys();
+                inputManager.addKeys(Keyboard.KEY_UP, "up");
+                inputManager.addKeys(Keyboard.KEY_DOWN, "down");
+                break;
+            case "game":
+                world = new GameWorld(player);
+                player.setWorld(world);
+                Mayflower.setWorld(world);
+                break;
+
 
         }
     }
