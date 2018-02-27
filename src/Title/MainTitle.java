@@ -27,6 +27,8 @@ public class MainTitle extends ModWorld implements EventListener
         Label temp =new Label("@",50, Color.BLACK);
         addObject(temp,50,50);
         Mayflower.setWorld(this);
+        this.client = client;
+        setBackground("img/black-background.jpg");
     }
 
     @Override

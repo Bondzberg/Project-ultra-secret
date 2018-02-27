@@ -1,5 +1,6 @@
 package Title;
 
+import GameClient.GameClient;
 import General.ModWorld;
 import General.Saves;
 import General.VerticalScrollingBox;
@@ -11,10 +12,11 @@ public class SelectSave extends ModWorld
     private LinkedList<Saves> saves;
     private VerticalScrollingBox vox;
 
-    public SelectSave()
+    public SelectSave(GameClient client)
     {
         saves = new LinkedList<>();
-        vox = new VerticalScrollingBox(saves);
+        //vox = new VerticalScrollingBox(saves);
+
     }
     @Override
     public void act()

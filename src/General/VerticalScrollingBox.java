@@ -5,7 +5,7 @@ import mayflower.Actor;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import List.InfiniteLinkedList;
+import storage.InfiniteLinkedList;
 
 public class VerticalScrollingBox extends Actor
 {

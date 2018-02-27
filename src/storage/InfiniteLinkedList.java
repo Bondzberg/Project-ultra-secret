@@ -1,4 +1,4 @@
-package List;
+package storage;
 
 public class InfiniteLinkedList<E>
 {

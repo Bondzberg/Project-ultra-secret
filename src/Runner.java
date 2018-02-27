@@ -5,7 +5,7 @@ import mayflower.*;
 public class Runner extends Mayflower
 {
     public Runner(){
-        super("Snek", 1024, 768);
+        super("Project ultra secret", 1024, 768);
     }
 
     public void init()

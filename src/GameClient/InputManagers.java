@@ -29,9 +29,10 @@ public class InputManagers extends Actor
     {
         for(int key: keys.keySet())
         {
-            if(Mayflower.isKeyDown(key))
+            if(Mayflower.isKeyPressed(key))
             {
-                client.onEvent(keys.get(key));
+                client.Process(keys.get(key));
+                break;
             }
         }
     }

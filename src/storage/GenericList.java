@@ -1,4 +1,4 @@
-package List;
+package storage;
 
 public interface GenericList<E>
 {
