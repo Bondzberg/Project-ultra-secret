@@ -6,6 +6,7 @@ import Actors.Terrain;
 import Actors.Wall;
 import Actors.terrain_types.roads;
 import General.ModWorld;
+import mayflower.Font;
 import storage.Nodes;
 import mayflower.Color;
 
@@ -21,6 +22,7 @@ public class GameWorld extends ModWorld
     private Player player;
     private Queue inputs;
     private boolean done;
+    private Font font;
 
     public GameWorld(Player player)
     {
@@ -35,6 +37,7 @@ public class GameWorld extends ModWorld
         inputs = new LinkedList();
         done =true;
         setWorld();
+        font = new Font("Time new Roman",16);
     }
 
     @Override
@@ -94,13 +97,13 @@ public class GameWorld extends ModWorld
                     ModActor actor = world[y1][x1].Actor();
                     Terrain terrain = world[y1][x1].Terrain();
                     if (actor != null) {
-                        showText(actor.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, actor.getColor());
+                        showText(actor.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, actor.getColor(),font);
 
                         if (actor.getClass().equals(Player.class)) {
                             player.setxyIndex(x1, y1);
                         }
                     } else if (terrain != null) {
-                        showText(terrain.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, terrain.getColor());
+                        showText(terrain.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, terrain.getColor(),font);
                     }
                 }
 

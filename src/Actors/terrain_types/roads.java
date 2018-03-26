@@ -12,16 +12,16 @@ public class roads extends Terrain
         {
             if(value == 1.1) {
                 super.setColor(Color.DARK_GRAY);
-                super.setLetter("≈");
+                super.setLetter("▓");
             }
             else if(value==1.2)
             {
-                super.setLetter("≈");
+                super.setLetter("░");
                 super.setColor(Color.YELLOW);
             }
             else if(value ==1.3)
             {
-                super.setLetter("");
+                super.setLetter("░");
                 super.setColor(Color.GRAY);
             }
         }
@@ -29,8 +29,8 @@ public class roads extends Terrain
         {
             if(value == 2.1)
             {
-                super.setColor(Color.ORANGE);
-                super.setLetter("");
+                super.setColor(Color.LIGHT_GRAY);
+                super.setLetter("█");
             }
         }
     }
