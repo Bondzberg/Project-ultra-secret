@@ -15,6 +15,8 @@ public class InputManagers extends Actor
     {
         keys = new HashMap<>();
         this.client = client;
+        setImage("img/play.png");
+        getImage().setTransparency(100);
     }
     public void addKeys(Integer key,String Action)
     {
