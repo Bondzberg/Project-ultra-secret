@@ -50,6 +50,8 @@ public class WorldGen
                     color = Color.GRAY;
                 else if(fin>.5)
                     color = Color.GREEN;
+                else if(fin>.4)
+                    color = Color.YELLOW;
                 else
                     color = Color.BLUE;
                 world.showText("█",8,8*x,y*8,color);
