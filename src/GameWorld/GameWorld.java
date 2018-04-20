@@ -97,13 +97,13 @@ public class GameWorld extends ModWorld
                     ModActor actor = world[y1][x1].Actor();
                     Terrain terrain = world[y1][x1].Terrain();
                     if (actor != null) {
-                        showText(actor.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, actor.getColor(),font);
+                        //showText(actor.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, actor.getColor(),font);
 
                         if (actor.getClass().equals(Player.class)) {
                             player.setxyIndex(x1, y1);
                         }
                     } else if (terrain != null) {
-                        showText(terrain.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, terrain.getColor(),font);
+                        //showText(terrain.getLetter(), 16, (x1 - x) * 16, (y1 - y) * 16 + 16, terrain.getColor(),font);
                     }
                 }
 

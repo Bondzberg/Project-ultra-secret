@@ -1,17 +1,26 @@
 
 import GameClient.GameClient;
 import mayflower.*;
+import worldGen.WorldGen;
 
 public class Runner extends Mayflower
 {
     public Runner(){
-        super("Project ultra secret", 1024, 768);
+        super("Project ultra secret", 800, 800);
     }
 
     public void init()
     {
         //Mayflower.setFullScreen(true);
-        new GameClient();
+        //new GameClient();
+        WorldGen worldGen =new WorldGen(new World() {
+            @Override
+            public void act() {
+
+            }
+        });
+        worldGen.getWorld().setBackground("img/black-background.jpg");
+        Mayflower.setWorld(worldGen.getWorld());
 
     }
 
