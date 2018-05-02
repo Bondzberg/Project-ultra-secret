@@ -33,7 +33,7 @@ public abstract class ModActor
         darker = false;
         this.world = world;
 
-        //getWorld().showText(letter,getX(),getY());
+        getWorld().showText(letter,getxIndex(),getyIndex());
     }
 
     public ModActor(String letter,int speed,int time,int health)

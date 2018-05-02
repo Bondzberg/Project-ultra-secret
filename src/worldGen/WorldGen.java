@@ -50,7 +50,7 @@ public class WorldGen
                     color = Color.GRAY;
                 else if(fin>.5)
                     color = Color.GREEN;
-                else if(fin>.4)
+                else if(fin>.45)
                     color = Color.YELLOW;
                 else
                     color = Color.BLUE;

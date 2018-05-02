@@ -1,5 +1,6 @@
 
 import GameClient.GameClient;
+import GameWorld.GameWorld;
 import mayflower.*;
 import worldGen.WorldGen;
 
@@ -21,6 +22,7 @@ public class Runner extends Mayflower
         });
         worldGen.getWorld().setBackground("img/black-background.jpg");
         Mayflower.setWorld(worldGen.getWorld());
+
 
     }
 
